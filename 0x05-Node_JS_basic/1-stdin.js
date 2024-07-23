@@ -10,6 +10,8 @@ r1.on('line', (name) => {
   r1.close();
 });
 r1.on('close', () => {
-  console.log('This important software is now closing');
+  if (!process.stdin.isTTY) {
+    console.log('This important software is now closing');
+  }
   process.exit(0);
 });
