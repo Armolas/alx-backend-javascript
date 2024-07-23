@@ -26,23 +26,22 @@ const app = createServer(async (req, res) => {
       const numberOfStudents = lines.length;
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/plain');
-      let response = 'This is the list of our students\n';
-      response += `Number of students: ${numberOfStudents}\n`;
+      const response = [];
+      response.push('This is the list of our students');
+      response.push(`Number of students: ${numberOfStudents}`);
       for (const field in fieldCount) {
         if (field) {
-          response += `Number of students in ${field}: ${fieldCount[field].length}. List: ${fieldCount[field].join(', ')}\n`;
+          response.push(`Number of students in ${field}: ${fieldCount[field].length}. List: ${fieldCount[field].join(', ')}`);
         }
       }
-			res.end(response);
+      res.end(response.join('\n'));
     } catch (error) {
       res.setHeader('Content-Type', 'text/plain');
-      res.statusCode = 500;
-      res.end('Cannot load database');
+      res.end('This is the list of our students\nCannot load the database');
     }
   } else {
-    res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Holberton School!');
+    res.end('Notfound');
   }
 });
 
