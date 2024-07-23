@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const { createServer } = require('http');
 const fs = require('fs');
 
