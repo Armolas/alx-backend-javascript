@@ -1,7 +1,7 @@
 #!/usr/bin/node
-const { expect } = require('chai');
+const chai = require('chai');
 const calculateNumber = require('./1-calcul.js');
-
+const expect = chai.expect
 describe('calculateNumber', () => {
   it('should return 4 when type is SUM and inputs are 1 and 3', () => {
     expect(calculateNumber('SUM', 1, 3)).to.equal(4);
